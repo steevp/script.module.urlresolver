@@ -48,9 +48,6 @@ class DailymotionResolver(Plugin, UrlResolver, PluginSettings):
             
             raise UrlResolver.ResolverError(err_message)
         
-        imgSrc = re.compile('"thumbnail_url":"(.+?)"').findall(link)[0]
-        common.addon.log('img:' + imgSrc)
-        
         dm_live = re.compile('live_rtsp_url":"(.+?)"', re.DOTALL).findall(link)
         dm_1080p = re.compile('"1080":.+?"url":"(.+?)"', re.DOTALL).findall(link)
         dm_720p = re.compile('"720":.+?"url":"(.+?)"', re.DOTALL).findall(link)
